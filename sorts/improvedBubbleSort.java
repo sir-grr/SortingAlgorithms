@@ -12,19 +12,26 @@ public class improvedBubbleSort extends sort {
     //this sorts in both directions at once by returning to the start meaning it's not only pushing big numbers to the back it's intentionally dragging small numbers to the front unlike a typical bubblesort
     @Override
     public ArrayList<Integer> sortArray(ArrayList<Integer> numList){
-        int lastNum = 0;
-        //loop through list
-        for(int i = 1; i< numList.size(); i++){
-            lastNum = numList.get(i-1);
-            //swap the previous number with this number if it is bigger
-            if (lastNum > numList.get(i)){
-                numList.remove(i-1);
-                numList.add(i, lastNum);
-                //if there is a swap go back to the start of the list
-                i = 0;
+        boolean swapDone = false;
+        int safeNums = 0;
+        do {
+            swapDone = false;
+            int lastNum = numList.get(0);
+            //loop through list
+            for(int i = 1; i< numList.size()-safeNums; i++){
+                //swap the previous number with this number if it is bigger
+                if (lastNum > numList.get(i)){
+                    numList.remove(i-1);
+                    numList.add(i, lastNum);
+                    swapDone = true;
+                }
+                //System.out.println("end of for");
+                lastNum = numList.get(i);
             }
-            //System.out.println("end of for");
-        }
+            //System.out.println("end of while");
+        safeNums+=1;//ignore an extra number at the end of the loop
+        //if there was a swap loop through list again
+        } while(swapDone);
         return numList;
     }
 }

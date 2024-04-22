@@ -11,19 +11,19 @@ public class mainClass {
         Random rng = new Random();
         //int[] numArray = {};
         ArrayList<Integer> list = new ArrayList<Integer>();
-        int randomCount = 10;//rng.nextInt(10);
+        int randomCount = rng.nextInt(1000);
         for (int i = 0; i < randomCount;i++){
             list.add(rng.nextInt(1000));
         }
     sort[] sorts = {new bubbleSort(), new improvedBubbleSort(), new selectionSort()/*, new testSort()*/};
         //printNumList(list);
         for(sort sort : sorts){
-            printNumList(list);
+            //printNumList(list);
             startStopwatch();
             ArrayList<Integer> sortingList = new ArrayList<>(list);
             sort.sortArray(sortingList);
             System.out.println(sort.getClass().getName().substring(6) + " Sorted " + randomCount + " numbers\nin " + stopStopwatch() + " nanoseconds ");
-            printNumList(sortingList);
+            //printNumList(sortingList);
             System.out.println();
         }
 
