@@ -4,7 +4,6 @@
 import java.util.ArrayList;
 import java.util.Random;
 import sorts.*;
-import sorts.bubbleSort;
 
 public class mainClass {
     private static long stopwatch;
@@ -12,24 +11,29 @@ public class mainClass {
         Random rng = new Random();
         //int[] numArray = {};
         ArrayList<Integer> list = new ArrayList<Integer>();
-        int randomCount = rng.nextInt(1,300);
+        int randomCount = rng.nextInt(1000,10000);
         for (int i = 0; i < randomCount;i++){
             list.add(rng.nextInt(1000));
         }
-        printNumList(list);
+        //printNumList(list);
         startStopwatch();
         ArrayList<Integer> bubbleSortedlist = bubbleSort.sortArray(list);
-        System.out.println("Sorted " + randomCount + " numbers\nin " + stopStopwatch() + " milliseconds ");
-        printNumList(bubbleSortedlist);
+        System.out.println("bubbleSort Sorted " + randomCount + " numbers\nin " + stopStopwatch() + " nanoseconds ");
+        //printNumList(bubbleSortedlist);
+
+        startStopwatch();
+        ArrayList<Integer> imporvedBubbleSortedlist = improvedBubbleSort.sortArray(list);
+        System.out.println("improvedBubbleSort Sorted " + randomCount + " numbers\nin " + stopStopwatch() + " nanoseconds ");
+        //printNumList(imporvedBubbleSortedlist);
         
     }
 
     public static void startStopwatch(){
-        stopwatch = System.currentTimeMillis();
+        stopwatch = System.nanoTime();
     }
 
     public static long stopStopwatch(){
-        stopwatch = System.currentTimeMillis() - stopwatch;
+        stopwatch = System.nanoTime() - stopwatch;
         return stopwatch;
     }
 
