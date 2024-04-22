@@ -15,17 +15,15 @@ public class mainClass {
         for (int i = 0; i < randomCount;i++){
             list.add(rng.nextInt(1000));
         }
+        sort[] sorts = {new bubbleSort(), new improvedBubbleSort()};
         //printNumList(list);
-        startStopwatch();
-        ArrayList<Integer> bubbleSortedlist = bubbleSort.sortArray(list);
-        System.out.println("bubbleSort Sorted " + randomCount + " numbers\nin " + stopStopwatch() + " nanoseconds ");
-        //printNumList(bubbleSortedlist);
+        for(sort sort : sorts){
+            startStopwatch();
+            ArrayList<Integer> sortedlist = sort.sortArray(list);
+            System.out.println(sort.getClass().getName().substring(6) + " Sorted " + randomCount + " numbers\nin " + stopStopwatch() + " nanoseconds ");
+            //printNumList(sortedlist);
+        }
 
-        startStopwatch();
-        ArrayList<Integer> imporvedBubbleSortedlist = improvedBubbleSort.sortArray(list);
-        System.out.println("improvedBubbleSort Sorted " + randomCount + " numbers\nin " + stopStopwatch() + " nanoseconds ");
-        //printNumList(imporvedBubbleSortedlist);
-        
     }
 
     public static void startStopwatch(){

@@ -5,23 +5,8 @@ package sorts;
 import java.util.ArrayList;
 //import java.util.Random;
 
-public class bubbleSort {
-    public static void main(String[] args) {
-        //this code is outdated and the sort is now run from mainClass
-        /* 
-        Random rng = new Random();
-        //int[] numArray = {};
-        ArrayList<Integer> list = new ArrayList<Integer>();
-        int randomCount = rng.nextInt(1,54);
-        for (int i = 0; i < randomCount;i++){
-            list.add(rng.nextInt(1000));
-        }
-        list = sortArray(list);
-        */
-    }
-    
-
-    public static ArrayList<Integer> sortArray(ArrayList<Integer> numList){
+public class bubbleSort extends sort{
+    public ArrayList<Integer> sortArray(ArrayList<Integer> numList){
         boolean swapDone = false;
         do {
             swapDone = false;
