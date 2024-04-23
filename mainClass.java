@@ -9,13 +9,19 @@ public class mainClass {
     private static long stopwatch;
     public static void main(String[] args) {
         Random rng = new Random();
-        //int[] numArray = {};
+        int[] numArray = {250, 332, 388, 475, 503, 543, 609, 591, 963, 961};
         ArrayList<Integer> list = new ArrayList<Integer>();
-        int randomCount = rng.nextInt(1000);
+        int randomCount = rng.nextInt(1,100030);//10;
+        
         for (int i = 0; i < randomCount;i++){
             list.add(rng.nextInt(1000));
         }
-    sort[] sorts = {new bubbleSort(), new improvedBubbleSort(), new selectionSort()/*, new testSort()*/};
+        /*
+        for (int num : numArray){
+            list.add(num);
+        }
+        */
+        sort[] sorts = {new modifiedSelectionSort(), new selectionSort()/* new bubbleSort(), new improvedBubbleSort(), new testSort()*/};
         //printNumList(list);
         for(sort sort : sorts){
             //printNumList(list);
