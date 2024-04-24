@@ -44,7 +44,6 @@ public class modifiedSelectionSort extends sort{
             }
             //printNumList(numList);
 
-            //printNumList(numList);
         }
         return numList;
     }
