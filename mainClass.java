@@ -9,9 +9,9 @@ public class mainClass {
     private static long stopwatch;
     public static void main(String[] args) {
         Random rng = new Random();
-        int[] numArray = {250, 332, 388, 475, 503, 543, 609, 591, 963, 961};
+        int[] numArray = {123, 426, 390, 621, 402,231,426,123};
         ArrayList<Integer> list = new ArrayList<Integer>();
-        int randomCount = rng.nextInt(1,100030);//10;
+        int randomCount = rng.nextInt(400000,500000);//10;
         
         for (int i = 0; i < randomCount;i++){
             list.add(rng.nextInt(1000));
@@ -21,14 +21,21 @@ public class mainClass {
             list.add(num);
         }
         */
-        sort[] sorts = {new modifiedSelectionSort(), new selectionSort()/* new bubbleSort(), new improvedBubbleSort(), new testSort()*/};
+        sort[] sorts = {new newSort(),new modifiedSelectionSort(),/* new selectionSort(), new bubbleSort(), new improvedBubbleSort(), new testSort()*/};
         //printNumList(list);
         for(sort sort : sorts){
             //printNumList(list);
-            startStopwatch();
+            //this is a prerun to ensure all classes are loaded etc
             ArrayList<Integer> sortingList = new ArrayList<>(list);
-            sort.sortArray(sortingList);
-            System.out.println(sort.getClass().getName().substring(6) + " Sorted " + randomCount + " numbers\nin " + stopStopwatch() + " nanoseconds ");
+            sortingList = sort.sortArray(sortingList);
+            //we run ten times and take an avg to get a more accurate result
+            startStopwatch();
+            int runs = 10;
+            for(int i = 0; i <runs;i++){
+                sortingList = new ArrayList<>(list);
+                sortingList = sort.sortArray(sortingList);
+            }
+            System.out.println(sort.getClass().getName().substring(6) + " Sorted " + randomCount + " numbers\nin " + (stopStopwatch()/runs) + " nanoseconds ");
             //printNumList(sortingList);
             System.out.println();
         }
