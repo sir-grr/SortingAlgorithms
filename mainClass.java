@@ -11,7 +11,7 @@ public class mainClass {
         Random rng = new Random();
         int[] numArray = {123, 426, 390, 621, 402,231,426,123};
         ArrayList<Integer> list = new ArrayList<Integer>();
-        int randomCount = rng.nextInt(50000,100000);//10;
+        int randomCount = rng.nextInt(10,150);//10;
         
         for (int i = 0; i < randomCount;i++){
             list.add(rng.nextInt(1000));
@@ -21,7 +21,7 @@ public class mainClass {
             list.add(num);
         }
         */
-        sort[] sorts = {new stalinSort()/*,new newSort(),new modifiedSelectionSort(), new selectionSort(), new bubbleSort(), new improvedBubbleSort(), new testSort()*/};
+        sort[] sorts = {new randomisedNewSort(),new stalinSort(),new newSort(),new modifiedSelectionSort()/*, new selectionSort(), new bubbleSort(), new improvedBubbleSort(), new testSort()*/};
         //printNumList(list);
         for(sort sort : sorts){
             //printNumList(list);
@@ -29,7 +29,7 @@ public class mainClass {
             ArrayList<Integer> sortingList = new ArrayList<>(list);
             sortingList = sort.sortArray(sortingList);
             //we run ten times and take an avg to get a more accurate result
-            int runs = 1;
+            int runs = 10;
             startStopwatch();
             for(int i = 0; i <runs;i++){
                 sortingList = new ArrayList<>(list);
