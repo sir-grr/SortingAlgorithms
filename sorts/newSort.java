@@ -42,7 +42,7 @@ public class newSort extends sort{
                 sortedList.add(0,newNumber);
             }
         } else{
-            sortedList.add(newNumber);
+            sortedList.add(middleIndex,newNumber);
         }
     }
 }
