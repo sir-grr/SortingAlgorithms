@@ -11,19 +11,11 @@ public class insertionSort extends sort{
     public ArrayList<Integer> sortArray(ArrayList<Integer> numList){
         //printNumList(numList);
         //System.out.println("pre sort ^");
-        List<Integer> sortedList = new ArrayList<Integer>();
         //loop through list
-        for(int i = 0; i< numList.size(); i++){
-            if(i==0){
-                sortedList.add(numList.get(i));
-            }
-            else{
-               addToSortedList(numList.get(i),sortedList);
-            }
-
-            //printNumList(new ArrayList<Integer>(sortedList));
+        for(int i = 1; i< numList.size(); i++){
+            addToSortedList(numList.remove(i),numList.subList(0, i));
+            printNumList(numList);
         }
-        numList = new ArrayList<Integer>(sortedList);
         return numList;
     }
 
