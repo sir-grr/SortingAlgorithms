@@ -13,7 +13,7 @@ public class sortTest {
     public static void main(String[] args) {
         addData();
         //for each sort run tests
-    sort[] sorts = {new randomisedInsertionSort()/*,new stalinSort(),new insertionSort(),new modifiedSelectionSort()*/, new selectionSort(),/*new bubbleSort(), new improvedBubbleSort()/* , new testSort()*/};
+        sort[] sorts = {new randomisedInsertionSort()/*,new stalinSort(),new insertionSort(),new modifiedSelectionSort()*/, new selectionSort(),/*new bubbleSort(), new improvedBubbleSort()/* , new testSort()*/};
         //printNumList(list);
         for(sort sort : sorts){
             System.out.println("Testing " + sort.getClass().getName().substring(6));
