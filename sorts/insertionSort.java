@@ -5,21 +5,22 @@ package sorts;
 import java.util.ArrayList;
 //import java.util.Random;
 import java.util.List;
-import java.util.Random;
 
-public class randomisedNewSort extends sort{
+public class insertionSort extends sort{
     @Override
     public ArrayList<Integer> sortArray(ArrayList<Integer> numList){
-        Random rng = new Random();
         //printNumList(numList);
         //System.out.println("pre sort ^");
         List<Integer> sortedList = new ArrayList<Integer>();
-        sortedList.add(numList.remove(0));
         //loop through list
-        int size = numList.size();
-        while(size > 0){
-            addToSortedList(numList.remove(rng.nextInt(size)),sortedList);
-            size = numList.size();
+        for(int i = 0; i< numList.size(); i++){
+            if(i==0){
+                sortedList.add(numList.get(i));
+            }
+            else{
+               addToSortedList(numList.get(i),sortedList);
+            }
+
             //printNumList(new ArrayList<Integer>(sortedList));
         }
         numList = new ArrayList<Integer>(sortedList);

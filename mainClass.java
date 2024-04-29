@@ -21,7 +21,7 @@ public class mainClass {
             list.add(num);
         }
         */
-        sort[] sorts = {new randomisedNewSort(),new stalinSort(),new newSort(),new modifiedSelectionSort()/*, new selectionSort(), new bubbleSort(), new improvedBubbleSort(), new testSort()*/};
+        sort[] sorts = {new randomisedInsertionSort(),new stalinSort(),new insertionSort(),new modifiedSelectionSort()/*, new selectionSort(), new bubbleSort(), new improvedBubbleSort(), new testSort()*/};
         //printNumList(list);
         for(sort sort : sorts){
             //printNumList(list);
