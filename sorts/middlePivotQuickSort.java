@@ -2,7 +2,6 @@ package sorts;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class middlePivotQuickSort extends sort{
     /* Pivot is key to quicksort
@@ -49,11 +48,13 @@ public class middlePivotQuickSort extends sort{
             quickSort(numList.subList(pivotIndex+1, numList.size()));
         }
     }
-    
+    public int setPivot(List<Integer> numList){
+        return numList.size()/2;
+    }
 
     public int partition(List<Integer> numList){
         //set the pivot
-        int pivotIndex = numList.size()/2;
+        int pivotIndex = setPivot(numList);
         //set the left and right pointers to as far as they need to be
         int fromLeftIndex = 0;
         int fromRightIndex = numList.size()-2;//-2 to avoid the pivot
