@@ -13,7 +13,7 @@ public class sortTest {
     public static void main(String[] args) {
         addData();
         //for each sort run tests
-        sort[] sorts = {new randomisedInsertionSort()/*,new stalinSort(),new insertionSort(),new modifiedSelectionSort()*/, new selectionSort(),/*new bubbleSort(), new improvedBubbleSort()/* , new testSort()*/};
+        sort[] sorts = {new middlePivotQuickSort()/*new randomisedInsertionSort()/*,new stalinSort(),new insertionSort(),new modifiedSelectionSort(), new selectionSort(),/*new bubbleSort(), new improvedBubbleSort()/* , new testSort()*/};
         //printNumList(list);
         for(sort sort : sorts){
             System.out.println("Testing " + sort.getClass().getName().substring(6));
@@ -51,6 +51,14 @@ public class sortTest {
         int[] test4Input = {1,1,1,1,1,1,1,1,1};
         int[] test4Output = {1,1,1,1,1,1,1,1,1};
         addDataNest(test4Input, test4Output);
+
+        int[] test5Input = {57};
+        int[] test5Output = {57};
+        addDataNest(test5Input, test5Output);
+
+        int[] test6Input = {};
+        int[] test6Output = {};
+        addDataNest(test6Input, test6Output);
     }
 
     public static void addDataNest(int[] testInput,int[] testOutput){
