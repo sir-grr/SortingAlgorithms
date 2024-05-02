@@ -2,6 +2,8 @@
 //this is an where we can run all our sorts from 
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Random;
 
 import sorts.*;
 
@@ -12,7 +14,7 @@ public class sortTest {
     public static void main(String[] args) {
         addData();
         //for each sort run tests
-        sort[] sorts = {new middlePivotQuickSort()/*new randomisedInsertionSort()/*,new stalinSort(),new insertionSort(),new modifiedSelectionSort(), new selectionSort(),/*new bubbleSort(), new improvedBubbleSort()/* , new testSort()*/};
+        sort[] sorts = {new middlePivotQuickSort(), new medianPivotQuickSort()/*new randomisedInsertionSort()/*,new stalinSort(),new insertionSort(),new modifiedSelectionSort(), new selectionSort(),/*new bubbleSort(), new improvedBubbleSort()/* , new testSort()*/};
         //printNumList(list);
         for(sort sort : sorts){
             System.out.println("Testing " + sort.getClass().getName().substring(6));
@@ -58,6 +60,16 @@ public class sortTest {
         int[] test6Input = {};
         int[] test6Output = {};
         addDataNest(test6Input, test6Output);
+
+        Random rng = new Random();
+        int randomCount = rng.nextInt(10,150);
+        int[] test7Input = new int[randomCount];
+        for (int i = 0; i < randomCount;i++){
+            test7Input[i] = rng.nextInt(0,1000);
+        }
+        int[] test7Output = test7Input.clone();
+        Arrays.sort(test7Output);
+        addDataNest(test7Input, test7Output);
     }
 
     public static void addDataNest(int[] testInput,int[] testOutput){
