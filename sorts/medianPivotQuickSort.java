@@ -1,6 +1,5 @@
 package sorts;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class medianPivotQuickSort extends middlePivotQuickSort{

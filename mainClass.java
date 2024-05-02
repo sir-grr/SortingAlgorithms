@@ -7,9 +7,10 @@ import sorts.*;
 
 public class mainClass {
     private static long stopwatch;
+    //this is where we time the sorts but it's kind of fallen out of use in favour of sortTest
     public static void main(String[] args) {
         Random rng = new Random();
-        int[] numArray = {123, 426, 390, 621, 402,231,426,123};
+        //int[] numArray = {123, 426, 390, 621, 402,231,426,123};
         ArrayList<Integer> list = new ArrayList<Integer>();
         int randomCount = rng.nextInt(10,150);//10;
         

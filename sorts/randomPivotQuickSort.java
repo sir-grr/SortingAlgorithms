@@ -1,0 +1,14 @@
+package sorts;
+
+import java.util.List;
+import java.util.Random;
+
+public class randomPivotQuickSort extends middlePivotQuickSort{
+    @Override
+    public int setPivot(List<Integer> numList){
+        Random rng = new Random();
+        //still use the middle 
+        return rng.nextInt(numList.size());
+    }
+
+}
