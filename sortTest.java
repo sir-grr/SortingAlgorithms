@@ -13,7 +13,7 @@ public class sortTest {
     public static void main(String[] args) {
         addData();
         //for each sort run tests
-        sort[] sorts = {new bubbleSort(),new middlePivotQuickSort(), new medianPivotQuickSort(),new randomPivotQuickSort(),/*new randomisedInsertionSort()/*,new stalinSort(),new insertionSort(),new modifiedSelectionSort(), new selectionSort(),/*new bubbleSort(), new improvedBubbleSort()/* , new testSort()*/};
+        sort[] sorts = {new modifiedSelectionSort(),new selectionSort(),new bubbleSort(),new improvedBubbleSort()};
         //printNumList(list);
         for(sort sort : sorts){
             test(sort);
@@ -32,9 +32,10 @@ public class sortTest {
                 if(isSorted(inputCopy)){
                     System.out.println("Test " + (i+1) + " passed, data sorted");
                 } else { // otherwise a failure
+                    System.out.println("Test " + (i+1) + " failed");
                     System.out.println("Actually recieved :");
                     printNumList(inputCopy);
-                    System.out.println("Test " + (i+1) + " failed");
+                    System.out.println("Expected: ");
                     Collections.sort(inputCopy);//sort it to show expected value
                     printNumList(inputCopy);
                 }
@@ -52,26 +53,27 @@ public class sortTest {
     }
 
     public static void addData(){
-        int[] test1Input = {123, 426, 390, 621, 402,231,426,123};
+        //this just adds all the test dat i want, i suspect it could be more efficient though
+        int[] test1Input = {123, 426, 390, 621, 402,231,426,123};//normal unordered data
         addDataNest(test1Input);
 
-        int[] test2Input = {1,3,3,2,5};
+        int[] test2Input = {1,3,3,2,5};//almost ordered data
         addDataNest(test2Input);
 
-        int[] test3Input = {1,0,0,3,4};
+        int[] test3Input = {0,0,1,3,4};//ordered data
         addDataNest(test3Input);
 
-        int[] test4Input = {1,1,1,1,1,1,1,1,1};
+        int[] test4Input = {1,1,1,1,1,1,1,1,1};//matching data
         addDataNest(test4Input);
 
-        int[] test5Input = {57};
+        int[] test5Input = {57};//1 piece of data
         addDataNest(test5Input);
 
-        int[] test6Input = {};
+        int[] test6Input = {};//no data
         addDataNest(test6Input);
-
+        //test with random data
         Random rng = new Random();
-        int randomCount = rng.nextInt(10,150);
+        int randomCount = rng.nextInt(10,400);
         int[] test7Input = new int[randomCount];
         for (int i = 0; i < randomCount;i++){
             test7Input[i] = rng.nextInt(0,1000);
@@ -87,8 +89,6 @@ public class sortTest {
         }
         testInputs.add(newInputList);
     }
-
-
 
     public static void printNumList(ArrayList<Integer> list){
         for(int i = 0; i< list.size(); i++){
