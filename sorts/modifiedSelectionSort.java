@@ -8,41 +8,35 @@ import java.util.ArrayList;
 public class modifiedSelectionSort extends sort{
     @Override
     public ArrayList<Integer> sortArray(ArrayList<Integer> numList){
-        //printNumList(numList);
-        //System.out.println("pre sort ^");
         //loop through list
-        for(int i = 0; i< numList.size()-1-i; i++){
-            int endI = numList.size()-1-i;
-            int compareSmallNumIndex = i;
-            int compareSmallNum = numList.get(i);
-            int compareBigNumIndex = compareSmallNumIndex;
-            int compareBigNum = compareSmallNum;
-            //loop through all the numbers after this one and find the smallest to swap with
-            for(int j = i+1; j <= endI; j++){
+        for(int i = 0; i<= numList.size()-1-i; i++){
+            int endI = numList.size()-1-i;//end of the list
+            int compareSmallNumIndex = i;//set the current smallest number to the first num
+            int compareSmallNum = numList.get(compareSmallNumIndex);
+            int compareBigNumIndex = endI;//set the biggest to the end one
+            int compareBigNum = numList.get(compareBigNumIndex);
+            //loop through all the numbers after this one and find the smallest and biggest
+            for(int j = i; j <= endI; j++){
+                //if it's the smallest not the value and index
                 if (compareSmallNum > numList.get(j)){
                     compareSmallNum = numList.get(j);
-                    compareSmallNumIndex = j;
-                } else if(compareBigNum < numList.get(j)){
+                    compareSmallNumIndex = j;//smallest
+                } else if(compareBigNum < numList.get(j)){//do the same if it's the largest
                     compareBigNum = numList.get(j);
-                    compareBigNumIndex = j;
+                    compareBigNumIndex = j;//biggest
                 }
             }
-            //place the smallest number at the start
-            if (compareSmallNumIndex != i) {
-                numList.add(i,numList.remove(compareSmallNumIndex));
+            //swap the smallest number with the number at the start
+            swap(numList, i, compareSmallNumIndex);
+
+            //check big number hasn't moved
+            if(compareBigNumIndex==i){
+                //swap the end number with the new location of big number
+                swap(numList, endI, compareSmallNumIndex);
+            }else{
+                //swap the end number with the biggest number
+                swap(numList,endI, compareBigNumIndex);
             }
-            //replace the end number with the biggest number
-            if (compareBigNumIndex != endI) {
-                if(compareSmallNumIndex > compareBigNumIndex){
-                    compareBigNumIndex +=1;
-                }
-                if(i==0){//if we're on our first add it to the end of the list
-                    numList.add(numList.remove(compareBigNumIndex));
-                }else{
-                    numList.add(endI,numList.remove(compareBigNumIndex));
-                }
-            }
-            //printNumList(numList);
 
         }
         return numList;
