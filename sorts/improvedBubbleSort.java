@@ -16,17 +16,13 @@ public class improvedBubbleSort extends sort {
         int safeNums = 0;
         do {
             swapDone = false;
-            int lastNum = numList.get(0);
             //loop through list
-            for(int i = 1; i< numList.size()-safeNums; i++){
-                //swap the previous number with this number if it is bigger
-                if (lastNum > numList.get(i)){
-                    numList.remove(i-1);
-                    numList.add(i, lastNum);
+            for(int i = 0; i< numList.size()-safeNums-1; i++){
+                //swap the next number with this number if it is smaller
+                if (numList.get(i+1) < numList.get(i)){
+                    swap(numList, i+1, i);
                     swapDone = true;
                 }
-                //System.out.println("end of for");
-                lastNum = numList.get(i);
             }
             //System.out.println("end of while");
         safeNums+=1;//ignore an extra number at the end of the loop
