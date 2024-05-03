@@ -21,9 +21,7 @@ public class selectionSort extends sort{
                 }
             }
             if (compareNumIndex != i) {
-                numList.add(compareNumIndex,numList.get(i));
-                numList.add(i,numList.remove(compareNumIndex+1));
-                numList.remove(i+1);
+                swap(numList, i, compareNumIndex);
             }
 
             //printNumList(numList);
