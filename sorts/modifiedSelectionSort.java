@@ -36,7 +36,7 @@ public class modifiedSelectionSort extends sort{
                 if(compareSmallNumIndex > compareBigNumIndex){
                     compareBigNumIndex +=1;
                 }
-                if(i==0){
+                if(i==0){//if we're on our first add it to the end of the list
                     numList.add(numList.remove(compareBigNumIndex));
                 }else{
                     numList.add(endI,numList.remove(compareBigNumIndex));
