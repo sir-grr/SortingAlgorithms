@@ -14,8 +14,7 @@ public class bubbleSort extends sort{
             for(int i = 1; i< numList.size(); i++){
                 //swap the previous number with this number if it is bigger
                 if (lastNum > numList.get(i)){
-                    numList.remove(i-1);//this works becuase it downshifts the number we;re on by 1 so doesn't move it when it's inserted
-                    numList.add(i, lastNum);
+                    swap(numList, i-1, i);
                 }
                 //System.out.println("end of for");
                 lastNum = numList.get(i);
