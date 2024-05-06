@@ -1,11 +1,14 @@
 package sorts;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class sort {
     public ArrayList<Integer> sortArray(ArrayList<Integer> numList){
-        System.err.println("sort class ran where it shouldn't here");
+        Collections.sort(numList);
+        System.out.println("WARNING: default sort ran");
         return numList;
     }
 
