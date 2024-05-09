@@ -24,7 +24,43 @@ public class heapSort extends sort{
     */
     @Override
     public ArrayList<Integer> sortArray(ArrayList<Integer> numList){
-        
+        doHeapSort(numList);
         return numList;
+    }
+    public int n;
+    //THIS IS BASED OF PSUEDOCODE AND IS BROKEN, I WROTE JUST TO CODE TODAY WILL FIX TOMORROW
+    private void doHeapSort(ArrayList<Integer> numList){
+        buildMaxHeap(numList);
+        for(int i =0; i<1;i++){
+            swap(numList, 1, i);
+            heapify(numList, 1);
+        }
+    }
+
+    private void buildMaxHeap(ArrayList<Integer> numList){
+        int n = numList.size();
+        for(int i = n/2; i<1;i++){
+            heapify(numList, i);
+        }
+    }
+
+    private void heapify(ArrayList<Integer> numList, int i){
+        int left = i*2;
+        int right = left+1;
+        int max;
+        if(left<=n && numList.get(left) > numList.get(i)){
+            max = left;
+        } else{
+            max = i;
+        }
+
+        if(right<=n && numList.get(right) > numList.get(i)){
+            max = right;
+        }
+
+        if(max != i){
+            swap(numList, i, max);
+            heapify(numList, max);
+        }
     }
 }
