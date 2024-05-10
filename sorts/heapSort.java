@@ -30,6 +30,7 @@ public class heapSort extends sort{
     public int n;
     //THIS IS BASED OF PSUEDOCODE AND IS BROKEN, I WROTE JUST TO CODE TODAY WILL FIX TOMORROW
     private void doHeapSort(ArrayList<Integer> numList){
+        n = numList.size();
         buildMaxHeap(numList);
         for(int i =0; i<1;i++){
             swap(numList, 1, i);

@@ -13,7 +13,7 @@ public class sortTest {
     public static void main(String[] args) {
         addData();
         //for each sort run tests
-        sort[] sorts = {new modifiedSelectionSort(),new selectionSort(),new bubbleSort(),new improvedBubbleSort()};
+        sort[] sorts = {new heapSort()};
         //printNumList(list);
         for(sort sort : sorts){
             test(sort);
