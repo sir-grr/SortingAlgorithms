@@ -11,14 +11,8 @@ public class heapSort extends sort{
         * the heapsort essentially works by iterating through,
         * 1,create max heap
         * 2, remove largest item (top node)
-        * 3, place item in sorted partition 
+        * 3, place item at the end as sorted
         * 
-        * to create a max heap we must creat a heap we do this by iterating through an array and adding numbers to a binary tree sequentially
-        * we then sort this heap into a max heap
-        * swap the largest num with smallest and remove the largest from the tree 
-        * heapify the tree
-        * then we start swapping the max number with the end of the array not the lowest number,
-        * we basically do this until there is one node in the heap
         * 
         * 
     */
