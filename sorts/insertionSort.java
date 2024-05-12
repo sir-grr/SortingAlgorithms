@@ -1,26 +1,26 @@
 package sorts;
-// bubblesort.java
-//this is an example of bubblesort in Java 
 
 import java.util.ArrayList;
-//import java.util.Random;
 import java.util.List;
 
 public class insertionSort extends sort{
     @Override
     public ArrayList<Integer> sortArray(ArrayList<Integer> numList){
-        //printNumList(numList);
-        //System.out.println("pre sort ^");
+        doInsertionSort(numList);
+        return numList;
+    }
+
+    private void doInsertionSort(ArrayList<Integer> numList){
         //loop through list
         for(int i = 1; i< numList.size(); i++){
+            //add the number to the start part of this list
             addToSortedList(numList.remove(i),numList.subList(0, i));
-            printNumList(numList);
         }
-        return numList;
     }
 
     private void addToSortedList(int newNumber, List<Integer> sortedList) {
         int middleIndex = (sortedList.size()/2);//this will truncate not round up
+        //because the start of the list is sorted we can go through it like a binary tree
         if(newNumber > sortedList.get(middleIndex)){
             if(middleIndex != sortedList.size()-1){
                 addToSortedList(newNumber, (sortedList.subList(middleIndex+1, sortedList.size())));

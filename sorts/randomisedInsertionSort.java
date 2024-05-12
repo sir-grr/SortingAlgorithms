@@ -1,15 +1,19 @@
 package sorts;
-// bubblesort.java
-//this is an example of bubblesort in Java 
 
 import java.util.ArrayList;
-//import java.util.Random;
 import java.util.List;
 import java.util.Random;
 
 public class randomisedInsertionSort extends sort{
     @Override
     public ArrayList<Integer> sortArray(ArrayList<Integer> numList){
+        if(numList.size()>1){   
+            doInsertionSort(numList);
+        }
+        return numList;
+    }
+
+    private void doInsertionSort(ArrayList<Integer> numList){
         Random rng = new Random();
         //printNumList(numList);
         //System.out.println("pre sort ^");
@@ -23,7 +27,6 @@ public class randomisedInsertionSort extends sort{
             //printNumList(new ArrayList<Integer>(sortedList));
         }
         numList = new ArrayList<Integer>(sortedList);
-        return numList;
     }
 
     private void addToSortedList(int newNumber, List<Integer> sortedList) {

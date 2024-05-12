@@ -12,17 +12,13 @@ public class heapSort extends sort{
         * 1,create max heap
         * 2, remove largest item (top node)
         * 3, place item at the end as sorted
-        * 
-        * 
-        * 
     */
     @Override
     public ArrayList<Integer> sortArray(ArrayList<Integer> numList){
         //check the list has more than 1 value in it otherwise don't bother sorting
-        if (numList.size()<2) {
-            return numList;
+        if (numList.size()>1) {
+            doHeapSort(numList);
         }
-        doHeapSort(numList);
         return numList;
     }
     //used a global var cause we decrement adjust and use it in two methods, could have passed it back and fourth but as it's primitive easier to do this.

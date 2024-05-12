@@ -5,7 +5,9 @@ import java.util.ArrayList;
 public class mergeSort extends sort{
     @Override
     public ArrayList<Integer> sortArray(ArrayList<Integer> numList){
-        doMergeSort(numList);
+        if(numList.size()>1){
+            doMergeSort(numList);
+        }
         return numList;
     }
 

@@ -33,26 +33,26 @@ public class middlePivotQuickSort extends sort{
          */
     @Override
     public ArrayList<Integer> sortArray(ArrayList<Integer> numList){
-        quickSort(numList);
+        doQuickSort(numList);
         return numList;
     }
-    public void quickSort(List<Integer> numList){
+    private void doQuickSort(List<Integer> numList){
         if(numList.size() >1){
             //find pivot
             int pivotIndex = partition(numList);
 
             //not there is no reason to include the pivot in these sorts as it's in the right place
             //sort the left partition
-            quickSort(numList.subList(0, pivotIndex));
+            doQuickSort(numList.subList(0, pivotIndex));
             //sort the right partition
-            quickSort(numList.subList(pivotIndex+1, numList.size()));
+            doQuickSort(numList.subList(pivotIndex+1, numList.size()));
         }
     }
     public int setPivot(List<Integer> numList){
         return numList.size()/2;
     }
 
-    public int partition(List<Integer> numList){
+    private int partition(List<Integer> numList){
         //set the pivot
         int pivotIndex = setPivot(numList);
         //set the left and right pointers to as far as they need to be

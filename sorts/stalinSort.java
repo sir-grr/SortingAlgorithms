@@ -1,16 +1,18 @@
 package sorts;
-// bubblesort.java
-//this is an example of bubblesort in Java 
 
 import java.util.ArrayList;
-//import java.util.Random;
 
 public class stalinSort extends sort{
     //this sort is fast but far to brutal with data loss for actul use
     @Override
     public ArrayList<Integer> sortArray(ArrayList<Integer> numList){
-        //printNumList(numList);
-        //loop through list
+        if(numList.size()>1){   
+            doStalinSort(numList);
+        }
+        return numList;
+    }
+
+    private void doStalinSort(ArrayList<Integer> numList){
         int compareNum = numList.get(0);
         //loop through every number after the first
         for(int i = 1; i< numList.size(); i++){
@@ -21,10 +23,6 @@ public class stalinSort extends sort{
             }else{ // if not make it the new number we're comparing to
                 compareNum = numList.get(i);
             }
-
-            
         }
-        //printNumList(numList);
-        return numList;
     }
 }

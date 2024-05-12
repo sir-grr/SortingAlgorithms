@@ -1,13 +1,15 @@
 package sorts;
-// bubblesort.java
-//this is an example of bubblesort in Java 
 
 import java.util.ArrayList;
-//import java.util.Random;
 
 public class modifiedSelectionSort extends sort{
     @Override
     public ArrayList<Integer> sortArray(ArrayList<Integer> numList){
+        doSelectionSort(numList);
+        return numList;
+    }
+
+    private void doSelectionSort(ArrayList<Integer> numList){
         //loop through list
         for(int i = 0; i<= numList.size()-1-i; i++){
             int endI = numList.size()-1-i;//end of the list
@@ -29,7 +31,7 @@ public class modifiedSelectionSort extends sort{
             //swap the smallest number with the number at the start
             swap(numList, i, compareSmallNumIndex);
 
-            //check big number hasn't moved
+            //if big number has moved aka was the starting smallest number
             if(compareBigNumIndex==i){
                 //swap the end number with the new location of big number
                 swap(numList, endI, compareSmallNumIndex);
@@ -39,6 +41,5 @@ public class modifiedSelectionSort extends sort{
             }
 
         }
-        return numList;
     }
 }
