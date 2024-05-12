@@ -24,44 +24,39 @@ public class heapSort extends sort{
     */
     @Override
     public ArrayList<Integer> sortArray(ArrayList<Integer> numList){
+        //check the list has more than 1 value in it otherwise don't bother sorting
+        if (numList.size()<2) {
+            return numList;
+        }
         doHeapSort(numList);
         return numList;
     }
-    public int n;
-    //THIS IS BASED OF PSUEDOCODE AND IS BROKEN, I WROTE JUST TO CODE TODAY WILL FIX TOMORROW
+    //used a global var cause we decrement adjust and use it in two methods, could have passed it back and fourth but as it's primitive easier to do this.
+    private int n;//=number of unsorted values
+    //the parent of a node = (indexofnode-1)/2
     private void doHeapSort(ArrayList<Integer> numList){
-        n = numList.size();
-        buildMaxHeap(numList);
-        for(int i =0; i<1;i++){
-            swap(numList, 1, i);
-            heapify(numList, 1);
+        //set number of unsorted values
+        n = numList.size()-1;
+        //while we have unsorted values
+        while(n>0){
+            //build a max heap and thrw the max to the end
+            maxHeapify(numList);
         }
     }
 
-    private void buildMaxHeap(ArrayList<Integer> numList){
-        int n = numList.size();
-        for(int i = n/2; i<1;i++){
-            heapify(numList, i);
+    private void maxHeapify(ArrayList<Integer> numList){
+        //start from the end of the unsorted values and work to the front
+        for(int childIndex = n; childIndex>0;childIndex--){
+            //the position of a parent node is always this
+            int parentIndex = (childIndex-1)/2;
+            //if the child is bigger than the parent swap them to build a max heap
+            if(numList.get(childIndex) > numList.get(parentIndex)){
+                swap(numList, childIndex, parentIndex);
+            }
         }
-    }
-
-    private void heapify(ArrayList<Integer> numList, int i){
-        int left = i*2;
-        int right = left+1;
-        int max;
-        if(left<=n && numList.get(left) > numList.get(i)){
-            max = left;
-        } else{
-            max = i;
-        }
-
-        if(right<=n && numList.get(right) > numList.get(i)){
-            max = right;
-        }
-
-        if(max != i){
-            swap(numList, i, max);
-            heapify(numList, max);
-        }
+        //put the biggest number (top of max heap) at the end of the unsorted list
+        swap(numList, 0, n);
+        //reduce the amount of unsorted values
+        n--;
     }
 }
