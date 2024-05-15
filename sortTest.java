@@ -11,8 +11,8 @@ public class sortTest {
     private static ArrayList<ArrayList<Integer>> testInputs = new ArrayList<>();
 
     public static void main(String[] args) {
-        //doTests();
-        tryJson();
+        doTests();
+        //tryJson();
     }
 
     public static void tryJson(){
@@ -28,13 +28,13 @@ public class sortTest {
             new improvedBubbleSort(),
             new insertionSort(),
             new medianPivotQuickSort(),
-            /*new mergeSort(),*///unfinished
             new middlePivotQuickSort(),
             new modifiedSelectionSort(),
             new randomisedInsertionSort(),
             new randomPivotQuickSort(),
             new selectionSort(),
-            new stalinSort()
+            new stalinSort(),
+            new mergeSort(),//unfinished
         };
         //printNumList(list);
         for(sort sort : sorts){
@@ -76,7 +76,7 @@ public class sortTest {
     public static void addData(){
 
         //this just adds all the test dat i want, i suspect it could be more efficient though
-        /*int[] test1Input = {123, 426, 390, 621, 402,231,426,123};//normal unordered data
+        int[] test1Input = {123, 426, 390, 621, 402,231,426,123};//normal unordered data
         addDataNest(test1Input);
 
         int[] test2Input = {1,3,3,2,5};//almost ordered data
@@ -92,7 +92,7 @@ public class sortTest {
         addDataNest(test5Input);
 
         int[] test6Input = {};//no data
-        addDataNest(test6Input);*/
+        addDataNest(test6Input);
         //test with random data
         Random rng = new Random();
         int randomCount = rng.nextInt(10,400);
