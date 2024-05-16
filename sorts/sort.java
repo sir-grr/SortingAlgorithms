@@ -19,6 +19,10 @@ public class sort {
         System.out.println();
     }
 
+    public static void printNumList(List<Integer> list){
+        printNumList(new ArrayList<Integer>(list));
+    }
+
     
     public void swap(List<Integer> list ,int firstIndex, int secondIndex){//quick method to swap values based on their indexes
         //store first value
