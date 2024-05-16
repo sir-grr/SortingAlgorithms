@@ -46,25 +46,27 @@ public class sortTest {
         System.out.println("Testing " + sort.getClass().getName().substring(6));
             for(int i = 0; i < testInputs.size();i++){
                 //we make a copy to ensure we aren't altering the actual data we need to use
-                ArrayList<Integer> inputCopy = new ArrayList<>(testInputs.get(i));
+                ArrayList<Integer> inputCopyForTesting = new ArrayList<>(testInputs.get(i));
+                ArrayList<Integer> inputCopyForSorting = new ArrayList<>(testInputs.get(i));
+
                 //we sort the copy
-                inputCopy = sort.sortArray(inputCopy);
+                inputCopyForSorting = sort.sortArray(inputCopyForSorting);
                 //if it is sorted we publish a success
-                if(isSorted(inputCopy)){
+                if(isSorted(inputCopyForTesting,inputCopyForSorting)){
                     System.out.println("Test " + (i+1) + " passed, data sorted");
                 } else { // otherwise a failure
                     System.out.println("Test " + (i+1) + " failed");
                     System.out.println("Actually recieved :");
-                    printNumList(inputCopy);
+                    printNumList(inputCopyForSorting);
                     System.out.println("Expected: ");
-                    Collections.sort(inputCopy);//sort it to show expected value
-                    printNumList(inputCopy);
+                    Collections.sort(inputCopyForTesting);//sort it to show expected value
+                    printNumList(inputCopyForTesting);
                 }
             }
     }
 
-    public static boolean isSorted(ArrayList<Integer> unCheckedList){
-        ArrayList<Integer> sortedList = new ArrayList<>(unCheckedList);
+    public static boolean isSorted(ArrayList<Integer> baseDataList, ArrayList<Integer> unCheckedList){
+        ArrayList<Integer> sortedList = new ArrayList<>(baseDataList);
         Collections.sort(sortedList);
         if (unCheckedList.equals(sortedList)){
             return true;
