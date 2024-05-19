@@ -36,7 +36,6 @@ public class sortTest {
             new stalinSort(),
             new mergeSort(),
         };
-        //printNumList(list);
         for(sort sort : sorts){
             test(sort);
         }
