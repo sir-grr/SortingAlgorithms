@@ -34,7 +34,7 @@ public class sortTest {
             new randomPivotQuickSort(),
             new selectionSort(),
             new stalinSort(),
-            new mergeSort(),//unfinished
+            new mergeSort(),
         };
         //printNumList(list);
         for(sort sort : sorts){
