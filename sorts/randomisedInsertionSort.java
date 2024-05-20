@@ -15,8 +15,6 @@ public class randomisedInsertionSort extends sort{
 
     private ArrayList<Integer> doInsertionSort(ArrayList<Integer> numList){
         Random rng = new Random();
-        //printNumList(numList);
-        //System.out.println("pre sort ^");
         List<Integer> sortedList = new ArrayList<Integer>();
         sortedList.add(numList.remove(0));
         //loop through list
@@ -24,7 +22,6 @@ public class randomisedInsertionSort extends sort{
         while(size > 0){
             addToSortedList(numList.remove(rng.nextInt(size)),sortedList);
             size = numList.size();
-            //printNumList(new ArrayList<Integer>(sortedList));
         }
         numList = new ArrayList<Integer>(sortedList);
         return numList;

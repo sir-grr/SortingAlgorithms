@@ -2,7 +2,6 @@ package sorts;
 //this is an example of bubblesort in Java 
 
 import java.util.ArrayList;
-//import java.util.Random;
 
 public class bubbleSort extends sort{
     @Override
